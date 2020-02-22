@@ -89,17 +89,17 @@
 - ## 6.2 git commit
     - [] git add 只是把文件添加到暂存区而已，并没有真正跟踪起来，需要使用git commit命令提交到仓库才能真正被git跟踪记录
     ```
-    root@ubuntu:/home/zhoudq/git.test# git commit -a -m "添加a.c b.c c.c d.c四个文件"
-    [master (root-commit) 29560c7] 添加a.c b.c c.c d.c四个文件
-    4 files changed, 0 insertions(+), 0 deletions(-)
-    create mode 100644 a.c
-    create mode 100644 b.c
-    create mode 100644 c.c
-    create mode 100644 d.c
-    root@ubuntu:/home/zhoudq/git.test# git status
-    On branch master
-    nothing to commit, working directory clean
-    root@ubuntu:/home/zhoudq/git.test# 
+        root@ubuntu:/home/zhoudq/git.test# git commit -a -m "添加a.c b.c c.c d.c四个文件"
+        [master (root-commit) 29560c7] 添加a.c b.c c.c d.c四个文件
+        4 files changed, 0 insertions(+), 0 deletions(-)
+        create mode 100644 a.c
+        create mode 100644 b.c
+        create mode 100644 c.c
+        create mode 100644 d.c
+        root@ubuntu:/home/zhoudq/git.test# git status
+        On branch master
+        nothing to commit, working directory clean
+        root@ubuntu:/home/zhoudq/git.test# 
     ```
 - ## 6.3 搭建中央服务器
   - [] 创建git账号和git用户组  
@@ -135,48 +135,48 @@
     ```
 - ## 6.5 添加文件并推送到中央服务器
     ```
-    10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
-    $ touch.exe c.c d.c
+        10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
+        $ touch.exe c.c d.c
 
-    10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
-    $ ls
-    a.c  b.c  c.c  d.c
+        10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
+        $ ls
+        a.c  b.c  c.c  d.c
 
-    10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
-    $ git status
-    On branch master
-    Your branch is up to date with 'origin/master'.
+        10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
+        $ git status
+        On branch master
+        Your branch is up to date with 'origin/master'.
 
-    Untracked files:
-    (use "git add <file>..." to include in what will be committed)
-            c.c
-            d.c
+        Untracked files:
+        (use "git add <file>..." to include in what will be committed)
+                c.c
+                d.c
 
-    nothing added to commit but untracked files present (use "git add" to track)
+        nothing added to commit but untracked files present (use "git add" to track)
 
-    10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
-    $ git add c.c d.c
+        10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
+        $ git add c.c d.c
 
-    10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
-    $ git commit -a -m '添加c.c d.c两个文件'
-    [master e574f83] 添加c.c d.c两个文件
-    2 files changed, 0 insertions(+), 0 deletions(-)
-    create mode 100644 c.c
-    create mode 100644 d.c
+        10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
+        $ git commit -a -m '添加c.c d.c两个文件'
+        [master e574f83] 添加c.c d.c两个文件
+        2 files changed, 0 insertions(+), 0 deletions(-)
+        create mode 100644 c.c
+        create mode 100644 d.c
 
-    10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
-    $ git push
-    git@192.168.31.111's password:
-    Enumerating objects: 3, done.
-    Counting objects: 100% (3/3), done.
-    Delta compression using up to 8 threads
-    Compressing objects: 100% (2/2), done.
-    Writing objects: 100% (2/2), 262 bytes | 87.00 KiB/s, done.
-    Total 2 (delta 0), reused 0 (delta 0)
-    To 192.168.31.111:/home/zhoudq/git-test.git
-    d4639c2..e574f83  master -> master
+        10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
+        $ git push
+        git@192.168.31.111's password:
+        Enumerating objects: 3, done.
+        Counting objects: 100% (3/3), done.
+        Delta compression using up to 8 threads
+        Compressing objects: 100% (2/2), done.
+        Writing objects: 100% (2/2), 262 bytes | 87.00 KiB/s, done.
+        Total 2 (delta 0), reused 0 (delta 0)
+        To 192.168.31.111:/home/zhoudq/git-test.git
+        d4639c2..e574f83  master -> master
 
-    10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
+        10067@LAPTOP-22M95BJU MINGW64 ~/Desktop/git-test/git-test (master)
 
     ```
 - ## 6.6 git 工作流程
@@ -574,8 +574,7 @@
         - 子模块有新的提交了，我们如何更新？就以上文所述，我们的bloomfilter项目已经更新了，那如何更新0voice_im里这个submodule的版本？方法如下：  
         cd server/src/bloomfilter  
         git pull  
-        git checkout commit-id  # 手动移动submodule的指针到某个commit-id上，然后我们在主repo上：git submodule status，可以看到  
-            # submodule更新了(前面有个‘+’号)，此时我们应该提交这个更新，这样别人才能获取到这个更新操作  
+        git checkout commit-id  # 手动移动submodule的指针到某个commit-id上，然后我们在主repo上：git submodule status，可以看到 # submodule更新了(前面有个‘+’号)，此时我们应该提交这个更新，这样别人才能获取到这个更新操作  
         git commit server/src/bloomfilter –m “move bloomfilter submodule to a1532ce02”  # 提交对submodule的更新  
         git push     # 推送更新到远程仓库
         - 上文，我们更新了submodule的内容了，也把submodule的这个“指向”更新推送到了远程仓库了，那其它的开发人员如何“同步”这种更新呢？  
